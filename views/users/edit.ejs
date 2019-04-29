@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include ../../partials/_head.ejs %>
+
+<body>
+
+<div class="container-fluid">
+    <% include ../../partials/_navbar.ejs %>
+
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-6">
+            <div class="center-text">  
+                <h1><%= user.username %> Edit Page</h1>
+                <form action="/users/<%= user._id %>?_method=PUT" method="post">
+                    <input type="text" name="username" value="<%= user.username %>">
+                    <input type="text" name="password" placeholder="new password">
+                    <input type="submit" value="Update Info">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <% include ../../partials/_bootstrap-links.ejs %>
+</body>
+</html>

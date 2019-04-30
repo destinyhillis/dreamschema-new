@@ -21,7 +21,7 @@ router.post('/register', async (req, res) => {
       const createdUser = await User.create(userDbEntry);
       req.session.logged = true;
       req.session.usersDbId = createdUser._id;
-      res.redirect('/users');
+      res.redirect('/dreams/new');
     } catch(err){
       res.send(err)
     }
@@ -53,14 +53,14 @@ router.post('/login', async (req, res) => {
         req.session.username = req.body.username;
         req.session.usersDbId = foundUser._id;
         console.log(req.session, 'successful login');
-        res.redirect('/users');
+        res.redirect('/dreams/new');
       } else {
-        req.session.message = 'password incorrect'; //change this for implementation
+        req.session.message = 'Incorrect information. Please try again.'; //change this for implementation
         console.log(req.session.message);
         res.redirect('/auth/login');
       } 
     } else {
-      req.session.message = 'username is incorrect';
+      req.session.message = 'Incorrect information. Please try again.';
       console.log(req.session.message);
       res.redirect('/auth/login');
     }

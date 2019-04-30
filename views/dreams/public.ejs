@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Dreams</title>
+</head>
+<body>
+ 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<% include ../../partials/_head.ejs %>
+
+<body>
+   
+<div class="container-fluid">
+ <% include ../../partials/_navbar.ejs %>
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-6">
+            <div class="center-text">  
+                  <h1>Public Dreams</h1>
+                    <%for(let i=0; i < dreams.length; i++){%>
+                        <ul>
+                        <% if (dreams.public) { %>
+                            <li><a href="/dreams/<%=dreams[i]._id%>"><%=dreams[i].title%> • <%=users[i].username%></li>
+                            
+                        <% } %>
+                        </ul>
+                    <%}%>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <% include ../../partials/_bootstrap-links.ejs %>
+</body>
+</html>

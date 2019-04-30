@@ -30,8 +30,7 @@ router.post('/register', async (req, res) => {
 router.get('/login', async (req, res) => {
   try {
 
-    const allKeywords = await Keyword.find({}); // find all keywords to fix leaderboard login bug
-
+    const allKeywords = await Keyword.find({}).sort([['count', -1]]); 
     const thisUsersDbId = req.session.usersDbId;
     res.render('auth/login.ejs', {
       currentUser : thisUsersDbId,
